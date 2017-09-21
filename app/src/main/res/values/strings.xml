@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">SelectPhoto</string>
+    <string name="descr_image">Image</string>
+    <string name="album_count">%1$d image(s)</string>
+    <string name="album_title">image</string>
+    <string name="button_send">send</string>
+    <string name="button_ok">OK</string>
+    <string name="button_preview">preview</string>
+    <string name="checkbox_original">original image</string>
+    <string name="checkbox_original_size">original image(%1$s)</string>
+    <string name="toast_max_count">No more than %1$d image(s)</string>
+
+    <string name="action_menu_select">Select</string>
+
+    <string name="pic_onsaving">正在保存</string>
+
+</resources>

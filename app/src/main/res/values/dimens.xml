@@ -1,0 +1,14 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="ActionBarTextSize">18.0dp</dimen>
+    <dimen name="HintTextSize">14.0dp</dimen>
+    <dimen name="BasicPaddingSize">4.0dip</dimen>
+    <dimen name="DefaultActionbarWidth">56dip</dimen>
+    <dimen name="DefaultActionbarHeightPort">49.0dip</dimen>
+    <dimen name="custom_imageview_size">18dp</dimen>
+    <dimen name="custom_text_size">16dp</dimen>
+    <dimen name="loading_progressbar_w">45dp</dimen>
+    <dimen name="loading_progressbar_h">45dp</dimen>
+</resources>

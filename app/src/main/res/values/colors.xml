@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="gray">#FF808080</color><!--灰色 -->
+    <color name="titlebule">#FF0C75C5</color><!--蓝色 -->
+
+
+    <!-- 顶部颜色值 -->
+    <color name="titlebg">#ff0C75C5</color>
+
+
+    <color name="bg_item_normal_color">#FFFFFFFF</color>
+    <color name="bg_item_pressed_color">#FFE1E2E6</color>
+    <color name="bg_item_selected_color">#FF459AF7</color>
+
+    <color name="window_bg_color">#FFF6F6F6</color>
+    <color name="actionbar_selector_color">#FF3986DB</color>
+    <color name="action_bar_color">#ff459AF7</color>
+    <color name="action_bar_tittle_color">#FFFFFFFF</color>
+    <color name="hint_text_color">#ff999999</color>
+    <color name="transparent">#00000000</color>
+    <color name="textwhite">#FFFFFFFF</color>
+    <color name="textblack">#ff333333</color>
+    <color name="bg_black">#ff000000</color>
+    <color name="bg_white">#ffFFFFFF</color>
+</resources>

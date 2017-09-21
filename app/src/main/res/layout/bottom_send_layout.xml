@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="0dp"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentRight="true"
+    android:background="@color/colorPrimary"
+    tools:showIn="@layout/fragment_gridview">
+
+    <Button
+        android:id="@+id/send_image_btn1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:minWidth="50dp"
+        android:text="@string/button_ok"
+        android:textColor="@color/textblack"
+        android:textSize="14sp" />
+</RelativeLayout>

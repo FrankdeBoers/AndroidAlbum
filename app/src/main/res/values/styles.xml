@@ -1,0 +1,69 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowContentTransitions">true</item>
+    </style>
+
+    <style name="bigWhiteText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/textwhite</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="bigBlackText" parent="@style/bigWhiteText">
+        <item name="android:textColor">@color/textblack</item>
+    </style>
+
+    <style name="middleWhiteText" parent="@style/bigWhiteText">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="middleBlackText" parent="@style/middleWhiteText">
+        <item name="android:textColor">@color/textblack</item>
+    </style>
+
+    <style name="smallBlackText" parent="@style/middleBlackText">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="smallWhiteText" parent="@style/middleBlackText">
+        <item name="android:textColor">@color/textwhite</item>
+    </style>
+
+    <style name="HeaderImageView_M">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:scaleType">centerInside</item>
+    </style>
+
+    <style name="HeaderImageView_W" parent="@style/HeaderImageView_M">
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="CustomListView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:divider">@drawable/divider</item>
+        <item name="android:dividerHeight">1.5dp</item>
+        <item name="android:cacheColorHint">@color/transparent</item>
+        <item name="android:listSelector">@color/transparent</item>
+    </style>
+
+
+    <style name="DialogTransparent" parent="Theme.AppCompat.Dialog">
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/background_light</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="windowActionBar">false</item>
+    </style>
+
+</resources>
