@@ -1,10 +1,17 @@
 package com.album;
 
+import android.Manifest;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -36,6 +43,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity
         implements OnAlbumClickListener, OnGridClickListener, ViewPagerAdapter.OnStickerClickListener {
 
+    private static final String TAG = "MainActivity";
     private AlbumFragment mAlbumFragment;
     private PhotoFragment mPhotoFragment;
     private ViewPagerFragment mPagerFragment;
@@ -55,10 +63,16 @@ public class MainActivity extends AppCompatActivity
     public static int iActionHeight = 0;
     public static String COUNT = "count";
 
+    private String[] permissions = {
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+    };
+
+    private final static int PERMISSION_REQUEST_CODE = 1000;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        Log.d("MainActivity", "SPA onCreate() >> ");
+        Log.d("MainActivity", "onCreate() >> ");
 
         Bundle savedInstanceStates = null;
         super.onCreate(savedInstanceStates);
@@ -68,11 +82,11 @@ public class MainActivity extends AppCompatActivity
             mFragmentManager = getSupportFragmentManager();
         }
 
-
-        initData();
-        initView();
-
-        getActionDimen();
+        if (checkPermission()) {
+            Log.d("MainActivity", "init..");
+            initData();
+            initView();
+        }
 
     }
 
@@ -129,7 +143,6 @@ public class MainActivity extends AppCompatActivity
                 mAlbumFragment.invalidate();
                 transaction.show(mAlbumFragment);
             }
-
             transaction.commitAllowingStateLoss();
         }
     }
@@ -169,21 +182,7 @@ public class MainActivity extends AppCompatActivity
                     mPagerFragment.setInfo(albumInfo, position);
                     transaction.show(mPagerFragment);
                 }
-            } /*else {
-                mEditPhotoFragment = (EditPhotoFragment) mFragmentManager.findFragmentByTag(Constants.TAG_FRAGMENT_PAGER);
-                String uri = albumInfo.getPhotoList().get(position).getImageURI();
-                if (mEditPhotoFragment == null) {
-                    mEditPhotoFragment = new EditPhotoFragment();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("image-uri", uri);
-                    mEditPhotoFragment.setArguments(bundle);
-                    transaction.add(R.id.selectphoto_content, mEditPhotoFragment, Constants.TAG_FRAGMENT_EDIT);
-                    transaction.addToBackStack(null);
-                } else {
-                    transaction.show(mEditPhotoFragment);
-                }
-            }*/
-
+            }
             transaction.commitAllowingStateLoss();
         }
     }
@@ -251,11 +250,6 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    public void getActionDimen() {
-        iAcionWidth = getResources().getDimensionPixelSize(R.dimen.DefaultActionbarWidth);
-        iActionHeight = getResources().getDimensionPixelSize(R.dimen.DefaultActionbarHeightPort);
-    }
-
     @Override
     public void onStickerClickListener(String path) {
         Intent intent = new Intent(this, StickerViewActivity.class);
@@ -268,5 +262,63 @@ public class MainActivity extends AppCompatActivity
         Intent intent = new Intent(this, DeleteActivity.class);
         intent.putExtra(EDIT_PIC_PATH, path);
         startActivity(intent);
+    }
+
+    private boolean checkPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (!(checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    == PackageManager.PERMISSION_GRANTED)) {
+                requestPermissions(permissions, PERMISSION_REQUEST_CODE);
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            return true;
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == PERMISSION_REQUEST_CODE) {
+            boolean granted = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+            if (granted) {
+                initData();
+                initView();
+            } else {
+                handlePermissionsFailure();
+            }
+        }
+    }
+
+    private void handlePermissionsFailure() {
+        new AlertDialog.Builder(this).setTitle(getResources().getString(R.string.camera_error_title))
+                .setMessage(getResources().getString(R.string.error_permissions))
+                .setCancelable(false)
+                .setOnKeyListener(new Dialog.OnKeyListener() {
+                    @Override
+                    public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
+                        if (keyCode == KeyEvent.KEYCODE_BACK) {
+                            finish();
+                        }
+                        return true;
+                    }
+                })
+                .setPositiveButton(getResources().getString(R.string.dialog_open_permission),
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                checkPermission();
+                            }
+                        })
+                .setNegativeButton(getResources().getString(R.string.dialog_dismiss),
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                finish();
+                            }
+                        })
+                .show();
     }
 }

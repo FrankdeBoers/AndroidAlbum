@@ -14,4 +14,9 @@
 
     <string name="pic_onsaving">正在保存</string>
 
+    <string name="dialog_dismiss" >"退出应用"</string>
+    <string name="dialog_open_permission" >"打开权限"</string>
+    <string name="error_permissions" >"此应用缺少运行所需的必要权限。请检查您的权限设置。"</string>
+    <string name="camera_error_title" >"相册发生错误"</string>
+
 </resources>
