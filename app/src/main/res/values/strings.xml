@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SelectPhoto</string>
+    <string name="app_name">简单相册</string>
     <string name="descr_image">Image</string>
     <string name="album_count">%1$d image(s)</string>
     <string name="album_title">image</string>

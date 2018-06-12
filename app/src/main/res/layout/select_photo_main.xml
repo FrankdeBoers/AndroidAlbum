@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/textwhite"
-    tools:context="com.phone.SelectPhotoActivity">
+    tools:context="com.album.MainActivity">
 
     <LinearLayout
         android:id="@+id/selectphoto_content"

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.phone">
+    package="com.album">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -10,7 +11,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.phone.SelectPhotoActivity">
+        <activity android:name="com.album.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,9 +19,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.phone.stickview710.StickerViewActivity" />
+        <activity android:name="com.album.stickview.StickerViewActivity" />
 
-        <activity android:name="com.phone.stickview710.DeleteActivity"
+        <activity android:name="com.album.stickview.DeleteActivity"
             android:theme="@style/DialogTransparent"
             ></activity>
 

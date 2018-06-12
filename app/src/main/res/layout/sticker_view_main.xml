@@ -44,7 +44,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="16dp"/>
 
-    <ghc.stickview710.stickerview.StickerView
+    <ghc.stickview.stickerview.StickerView
         android:id="@+id/stickerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
